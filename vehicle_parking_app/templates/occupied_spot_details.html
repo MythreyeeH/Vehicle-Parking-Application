@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Occupied Parking Spot Details</title>
+    <style>
+        body { font-family: Arial; }
+        .container { width: 350px; margin: auto; border: 2px solid black; padding: 20px; margin-top: 50px; }
+        h2 { text-align: center; }
+        label { display: block; margin-top: 10px; }
+        input { width: 100%; padding: 5px; }
+        .btns { text-align: center; margin-top: 20px; }
+        button { padding: 8px 15px; margin: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Occupied Parking Spot Details</h2>
+    
+    <label>ID:</label>
+    <input type="text" name="spot_id" value="{{ spot_id }}" readonly>
+
+    <label>Status: </label>
+    <input type="text" name="status" value="{{ status }}" readonly>
+
+    <label>Customer ID:</label>
+    <input type="text" name="user_id" value="{{ user_id }}" readonly>
+
+    <label>Vehicle Number:</label>
+    <input type="text" name="vehicle_no" value="{{ vehicle_no }}" readonly>
+
+    <label>Date/Time of Parking:</label>
+    <input type="text" name="date_of_parking" value="{{ date_of_parking }}" readonly>
+    <input type="text" name="time_of_parking" value="{{ time_of_parking }}" readonly>
+
+    <label>Est. Parking Cost:</label>
+    <input type="text" name="parking_cost" value="{{ parking_cost }}" readonly>
+
+    <div class="btns">
+        <form action="{{ url_for('occupied_slot_details') }}" method="post">
+            <input type="hidden" name="lot_id" value="{{ lot_id }}">
+            <input type="hidden" name="spot_id" value="{{ spot_id }}">
+            <button type="submit">Release</button>
+        </form>
+        <form action="{{ url_for('admin_dashboard') }}" method="get">
+                <button type="submit">Close</button>
+         </form>
+    </div>
+</div>
+</body>
+</html>

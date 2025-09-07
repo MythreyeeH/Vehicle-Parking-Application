@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Parking Lots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: lightgreen;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .header-left {
+            font-weight: bold;
+            color: red;
+        }
+        .header-right a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: blue;
+        }
+        .nav {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .lots-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .lot-card {
+            border: 2px solid black;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px;
+            width: 220px;
+            text-align: center;
+        }
+        .lot-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .spot-btn {
+            width: 35px;
+            height: 35px;
+            margin: 3px;
+            border: 1px solid black;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+        .occupied {
+            background-color: pink;
+            color: black;
+        }
+        .unoccupied {
+            background-color: lightgreen;
+            color: black;
+        }
+        .actions {
+            margin: 5px 0;
+        }
+        .add-lot-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            background-color: skyblue;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="header-left">Welcome to Admin</div>
+    <div class="header-right">
+        <a href="/admin_dashboard">Home</a> |
+        <a href="/admin_registered_users">Users</a> |
+        <a href="/admin_search">Search</a> |
+        <a href="/admin_summary">Summary</a> |
+        <a href="/logout">Logout</a> |
+        <a href="/admin_edit_profile">Edit Profile</a>
+    </div>
+</div>
+<div class="nav">Parking Lots</div>
+<div class="lots-container">
+    {% for lot in lots %}
+    <div class="lot-card">
+        <h3>Parking#{{ lot.id }}</h3>
+        <div class="actions">
+            <a href="{{ url_for('edit_parking_lot', lot_id=lot.id) }}">
+                <button style="background-color: skyblue; padding: 5px 10px;">Edit</button>
+            </a>
+            <form method="POST" action="{{ url_for('delete_parking_lot', lot_id=lot.id) }}" style="display:inline;">
+                <button type="submit" style="background-color: skyblue; padding: 5px 10px;">Delete</button>
+            </form>
+        </div>
+        <p>(Occupied: {{ lot.occupied_spots }} / {{ lot.max_spots }})</p>
+        <div class="lot-buttons">
+            {% for i in range(1, lot.max_spots + 1) %}
+                <form method="GET" action="/occupied_slot_details">
+                    <input type="hidden" name="lot_id" value="{{ lot.id }}">
+                    <input type="hidden" name="spot_id" value="{{ i }}">
+                    {% if lot.spot_status[i] == 1 %}
+                        <button type="submit" class="spot-btn occupied">O</button>
+                    {% else %}
+                        <button type="submit" class="spot-btn unoccupied">U</button>
+                    {% endif %}
+                </form>
+            {% endfor %}
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div style="text-align: center; margin: 20px;">
+    <a href="/add_parking_lot">
+        <button style="padding: 10px 20px; background-color: skyblue; border: 1px solid black;">Add Lot</button>
+    </a>
+</div>
+</body>
+</html>

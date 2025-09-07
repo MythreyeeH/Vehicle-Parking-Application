@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Registered Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: lightgreen;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .header-left {
+            font-weight: bold;
+            color: red;
+        }
+        .header-right a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: blue;
+        }
+        .nav {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .users-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            text-align: center;
+        }
+        th, td {
+            border: 2px solid black;
+            padding: 8px 12px;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-left">Welcome to Admin</div>
+    <div class="header-right">
+        <a href="/admin_dashboard">Home</a> |
+        <a href="/admin_registered_users">Users</a> |
+        <a href="/admin_search">Search</a> |
+        <a href="/admin_summary">Summary</a> |
+        <a href="/logout">Logout</a> |
+        <a href="/admin_edit_profile">Edit Profile</a>
+    </div>
+</div>
+<div class="nav">Registered Users</div>
+<div class="users-container">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Address</th>
+            <th>Pin Code</th>
+        </tr>
+
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.full_name }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.pincode }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

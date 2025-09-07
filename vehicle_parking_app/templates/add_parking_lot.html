@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Parking Lot</title>
+    <style>
+        body { font-family: Arial; }
+        .container { width: 400px; margin: auto; border: 2px solid black; padding: 20px; margin-top: 50px; }
+        h2 { text-align: center; }
+        label { display: block; margin-top: 10px; }
+        input, textarea { width: 100%; padding: 5px; }
+        .btns { text-align: center; margin-top: 20px; }
+        button { padding: 8px 15px; margin: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>New Parking Lot</h2>
+    <form method="POST" action="">
+        <label>Prime Location Name:</label>
+        <input type="text" name="prime_location_name" required>
+
+        <label>Address:</label>
+        <input type="text" name="address"  required></input>
+
+        <label>Pin Code:</label>
+        <input type="text" name="pincode" required>
+
+        <label>Price (per hour):</label>
+        <input type="number" name="price_per_hour" required>
+
+        <label>Maximum spots:</label>
+        <input type="number" name="max_spots" required>
+
+        <div class="btns">
+            <button type="submit">Add</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

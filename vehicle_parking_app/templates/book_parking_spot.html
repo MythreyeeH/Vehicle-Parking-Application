@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book the Parking Spot</title>
+    <style>
+        body { font-family: Arial; }
+        .container { width: 400px; margin: auto; border: 2px solid black; padding: 20px; margin-top: 50px; }
+        .header { text-align: center; font-size: 1.5em; font-weight: bold; margin-bottom: 10px; }
+        label { display: block; margin-top: 10px; }
+        input { width: 100%; padding: 5px; }
+        .btns { text-align: center; margin-top: 20px; }
+        button { padding: 8px 15px; margin: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">Book the parking spot</div>
+    <form method="POST" action="/book_parking/{{ lot_id }}">
+        <label>Spot ID :</label>
+        <input type="text" name="spot_id" value="{{ spot_id }}" readonly>
+
+        <label>Lot ID :</label>
+        <input type="text" name="lot_id" value="{{ lot_id }}" readonly>
+
+        <label>User ID :</label>
+        <input type="text" name="user_id" value="{{ user_id }}" readonly>
+
+        <label>Vehicle Number :</label>
+        <input type="text" name="vehicle_number" required>
+
+        <div class="btns">
+            <button type="submit">Reserve</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

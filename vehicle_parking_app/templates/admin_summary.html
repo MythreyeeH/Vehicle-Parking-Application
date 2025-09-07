@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: lightgreen;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .header-left {
+            font-weight: bold;
+            color: red;
+        }
+        .header-right a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: blue;
+        }
+        .nav {
+            margin: 20px;
+            font-size: 20px;
+            text-align: center;
+            color: orange;
+        }
+        .charts {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 30px;
+        }
+        img {
+            border: 2px solid black;
+            padding: 10px;
+            background-color: #f0f0f0;
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-left">Welcome to Admin</div>
+    <div class="header-right">
+        <a href="/admin_dashboard">Home</a> |
+        <a href="/admin_registered_users">Users</a> |
+        <a href="/admin_search">Search</a> |
+        <a href="/admin_summary">Summary</a> |
+        <a href="/logout">Logout</a> |
+        <a href="/admin_edit_profile">Edit Profile</a>
+    </div>
+</div>
+<div class="nav">Summary shows statistical charts</div>
+<div class="charts">
+    <div>
+        <h3>Revenue from each parking lot</h3>
+        <img src="{{ revenue_chart }}" alt="Revenue Chart">
+    </div>
+    <div>
+        <h3>Summary on occupied parking lots</h3>
+        <img src="{{ occupancy_chart }}" alt="Occupancy Chart">
+    </div>
+</div>
+</body>
+</html>
+

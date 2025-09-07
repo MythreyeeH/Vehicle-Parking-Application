@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Release the Parking Spot</title>
+    <style>
+        body { font-family: Arial; }
+        .container { width: 400px; margin: auto; border: 2px solid black; padding: 20px; margin-top: 50px; }
+        h2 { text-align: center; }
+        label { display: block; margin-top: 10px; }
+        input { width: 100%; padding: 5px; }
+        .btns { text-align: center; margin-top: 20px; }
+        button { padding: 8px 15px; margin: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Release the Parking Spot</h2>
+    <form method="POST" action="">
+        <label>Spot ID:</label>
+        <input type="text" name="spot_id" value="{{ data.spot_id }}" readonly>
+
+        <label>Vehicle Number:</label>
+        <input type="text" name="vehicle_number" value="{{ data.vehicle_no }}" readonly>
+
+        <label>Parking time:</label>
+        <input type="text" name="parking_time" value="{{ data.time_of_parking }}" readonly>
+
+        <label>Releasing time:</label>
+        <input type="text" name="releasing_time" value="{{ releasing_time }}" readonly>
+
+        <label>Total cost:</label>
+        <input type="text" name="total_cost" value="{{ total_cost }}" readonly>
+
+        <div class="btns">
+            <button type="submit">Release</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

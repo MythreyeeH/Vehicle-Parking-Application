@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: lightgreen;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .header-left {
+            font-weight: bold;
+            color: red;
+        }
+        .header-right a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: blue;
+        }
+        .nav {
+            margin: 20px;
+            font-size: 20px;
+            text-align: center;
+            color: orange;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        img {
+            border: 2px solid black;
+            padding: 10px;
+            background-color: #f0f0f0;
+            width: 400px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-left">Welcome to User</div>
+    <div class="header-right">
+        <a href="/user_dashboard">Home</a> |
+        <a href="/user_summary">Summary</a> |
+        <a href="/logout">Logout</a> |
+        <a href="/user_edit_profile">Edit Profile</a>
+    </div>
+</div>
+
+<div class="nav">Summary of already used parking lots</div>
+<div class="chart-container">
+    <img src="{{ summary_chart }}" alt="Parking Lot Usage Summary">
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Edit Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .edit-box {
+            width: 500px;
+            margin: 50px auto;
+            border: 1px solid black;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 15px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 300px;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .form-actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-actions button {
+            padding: 10px 20px;
+            background-color: skyblue;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="edit-box">
+    <h2>User Edit Profile</h2>
+    <form method="POST" action="/admin_edit_profile">
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password :</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="fullname">Full Name :</label>
+            <input type="text" id="fullname" name="fullname" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address :</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+            <label for="pincode">Pincode :</label>
+            <input type="text" id="pincode" name="pincode" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit">Update Profile</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .login-box {
+            width: 400px;
+            margin: 100px auto;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+        }
+        h2 {
+            text-align: center;
+            color: purple;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .login-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: skyblue;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .create-account {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .create-account a {
+            color: orange;
+            text-decoration: none;
+        }
+        .role-selection {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <form method="POST" action="/login">
+        <div class="role-selection">
+            <label><input type="radio" name="role" value="user" required> User</label>
+            <label><input type="radio" name="role" value="admin" required> Admin</label>
+        </div>
+
+        <label for="email">Registered Email ID:</label>
+        <input type="text" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button class="login-btn" type="submit">Login</button>
+    </form>
+    <div class="create-account">
+        <a href="/register">Create Account?</a>
+    </div>
+</div>
+</body>
+</html>
